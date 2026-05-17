@@ -80,9 +80,7 @@ def lloyd_iter_chunked_dense(
 
     if n_samples == 0:
         # An empty array was passed, do nothing and return early (before
-        # attempting to compute n_chunks). This can typically happen when
-        # calling the prediction function of a bisecting k-means model with a
-        # large fraction of outliers.
+        # attempting to compute n_chunks). 
         return
 
     cdef:
@@ -278,9 +276,7 @@ def lloyd_iter_chunked_sparse(
 
     if n_samples == 0:
         # An empty array was passed, do nothing and return early (before
-        # attempting to compute n_chunks). This can typically happen when
-        # calling the prediction function of a bisecting k-means model with a
-        # large fraction of outliers.
+        # attempting to compute n_chunks). 
         return
 
     cdef:

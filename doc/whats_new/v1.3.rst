@@ -197,15 +197,6 @@ random sampling procedures.
   `transform_algorithm` is not the same as `fit_algorithm` and the number of iterations
   is small. :pr:`24871` by :user:`Omar Salman <OmarManzoor>`.
 
-- |Enhancement| The `sample_weight` parameter now will be used in centroids
-  initialization for :class:`cluster.KMeans`, :class:`cluster.BisectingKMeans`
-  and :class:`cluster.MiniBatchKMeans`.
-  This change will break backward compatibility, since numbers generated
-  from same random seeds will be different.
-  :pr:`25752` by :user:`Hleb Levitski <glevv>`,
-  :user:`Jérémie du Boisberranger <jeremiedbb>`,
-  :user:`Guillaume Lemaitre <glemaitre>`.
-
 - |Fix| Treat more consistently small values in the `W` and `H` matrices during the
   `fit` and `transform` steps of :class:`decomposition.NMF` and
   :class:`decomposition.MiniBatchNMF` which can produce different results than previous
@@ -393,15 +384,6 @@ Changelog
   by :user:`Leland McInnes <lmcinnes>` et al.
 
   :pr:`26385` by :user:`Meekail Zain <micky774>`
-
-- |Enhancement| The `sample_weight` parameter now will be used in centroids
-  initialization for :class:`cluster.KMeans`, :class:`cluster.BisectingKMeans`
-  and :class:`cluster.MiniBatchKMeans`.
-  This change will break backward compatibility, since numbers generated
-  from same random seeds will be different.
-  :pr:`25752` by :user:`Hleb Levitski <glevv>`,
-  :user:`Jérémie du Boisberranger <jeremiedbb>`,
-  :user:`Guillaume Lemaitre <glemaitre>`.
 
 - |Fix| :class:`cluster.KMeans`, :class:`cluster.MiniBatchKMeans` and
   :func:`cluster.k_means` now correctly handle the combination of `n_init="auto"`

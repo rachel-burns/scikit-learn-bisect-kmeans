@@ -18,7 +18,6 @@ from sklearn.cluster import (
     AffinityPropagation,
     AgglomerativeClustering,
     Birch,
-    BisectingKMeans,
     FeatureAgglomeration,
     KMeans,
     MeanShift,
@@ -206,7 +205,6 @@ INIT_PARAMS = {
     BayesianRidge: dict(max_iter=5),
     BernoulliRBM: dict(n_iter=5, batch_size=10),
     Birch: dict(n_clusters=2),
-    BisectingKMeans: dict(n_init=2, n_clusters=2, max_iter=5),
     CalibratedClassifierCV: dict(estimator=LogisticRegression(C=1), cv=3),
     CCA: dict(n_components=1, max_iter=5),
     ClassifierChain: dict(estimator=LogisticRegression(C=1), cv=3),
@@ -523,7 +521,6 @@ PER_ESTIMATOR_CHECK_PARAMS: dict = {
     BayesianGaussianMixture: {"check_dict_unchanged": dict(max_iter=5, n_init=2)},
     BernoulliRBM: {"check_dict_unchanged": dict(n_components=1, n_iter=5)},
     Birch: {"check_dict_unchanged": dict(n_clusters=1)},
-    BisectingKMeans: {"check_dict_unchanged": dict(max_iter=5, n_clusters=1, n_init=2)},
     CCA: {"check_dict_unchanged": dict(max_iter=5, n_components=1)},
     DecisionTreeRegressor: {
         "check_sample_weight_equivalence_on_dense_data": [
@@ -941,15 +938,6 @@ PER_ESTIMATOR_XFAIL_CHECKS = {
     BernoulliRBM: {
         "check_methods_subset_invariance": ("fails for the decision_function method"),
         "check_methods_sample_order_invariance": ("fails for the score_samples method"),
-    },
-    BisectingKMeans: {
-        # TODO: replace by a statistical test, see meta-issue #16298
-        "check_sample_weight_equivalence_on_dense_data": (
-            "sample_weight is not equivalent to removing/repeating samples."
-        ),
-        "check_sample_weight_equivalence_on_sparse_data": (
-            "sample_weight is not equivalent to removing/repeating samples."
-        ),
     },
     CalibratedClassifierCV: {
         "check_array_api_mixed_inputs": "mixed array API input support not added yet",

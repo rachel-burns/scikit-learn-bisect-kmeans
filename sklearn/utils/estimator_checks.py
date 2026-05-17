@@ -304,7 +304,6 @@ def _yield_transformer_checks(transformer):
         "KernelPCA",
         "LocallyLinearEmbedding",
         "LogisticRegressionCV",
-        "BisectingKMeans",
     ]
 
     name = transformer.__class__.__name__
